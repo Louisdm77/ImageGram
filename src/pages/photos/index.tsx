@@ -2,7 +2,7 @@ import * as React from "react";
 
 interface IPhotosProps {}
 
-const Photos: React.FunctionComponent<IPhotosProps> = (props) => {
+const Photos: React.FunctionComponent<IPhotosProps> = () => {
   return <div>photos</div>;
 };
 

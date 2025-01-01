@@ -2,7 +2,7 @@ import * as React from "react";
 
 interface IProfileProps {}
 
-const Profile: React.FunctionComponent<IProfileProps> = (props) => {
+const Profile: React.FunctionComponent<IProfileProps> = () => {
   return <div>profile</div>;
 };
 

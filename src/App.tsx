@@ -5,7 +5,7 @@ import "./App.css";
 
 interface IAppProps {}
 
-const App: React.FunctionComponent<IAppProps> = (props) => {
+const App: React.FunctionComponent<IAppProps> = () => {
   return <RouterProvider router={router} />;
 };
 

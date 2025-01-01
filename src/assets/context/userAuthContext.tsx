@@ -51,7 +51,7 @@ const userAuthContext = createContext<userContextData>({
   gitHubSignIn,
 });
 
-const userContextProvider: React.FC<{ children: React.ReactNode }> = ({
+export const userContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
