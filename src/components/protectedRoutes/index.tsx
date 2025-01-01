@@ -3,9 +3,7 @@ import { useLocation, Navigate, Outlet } from "react-router-dom";
 
 interface IProtectedRoutesProps {}
 
-const ProtectedRoutes: React.FunctionComponent<IProtectedRoutesProps> = (
-  props
-) => {
+const ProtectedRoutes: React.FunctionComponent<IProtectedRoutesProps> = () => {
   const isAuth: boolean = false;
   const location = useLocation();
 
