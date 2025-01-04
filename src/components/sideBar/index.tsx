@@ -14,7 +14,7 @@ import { useUserAuth } from "../../assets/context/userAuthContext";
 
 interface ISideBarProps {}
 
-const SideBar: React.FunctionComponent<ISideBarProps> = (props) => {
+const SideBar: React.FunctionComponent<ISideBarProps> = () => {
   const [clicked, setClicked] = useState<string>("");
   const { logOut } = useUserAuth();
   const navList = [
