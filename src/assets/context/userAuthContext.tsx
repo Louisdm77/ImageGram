@@ -29,7 +29,7 @@ const signUp = (email: string, password: string) => {
 };
 
 const logOut = () => {
-  signOut(auth);
+  return signOut(auth);
 };
 
 const googleSignIn = () => {
@@ -51,7 +51,7 @@ const userAuthContext = createContext<userContextData>({
   gitHubSignIn,
 });
 
-export const userContextProvider: React.FC<{ children: React.ReactNode }> = ({
+export const UserContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -60,6 +60,9 @@ export const userContextProvider: React.FC<{ children: React.ReactNode }> = ({
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        console.log("in useeffect, user is", user);
+      } else {
+        setUser(null);
       }
     });
 

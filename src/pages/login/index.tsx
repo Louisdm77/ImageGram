@@ -13,6 +13,7 @@ import { Label } from "../../components/ui/label";
 import { Link } from "react-router-dom";
 import { useUserAuth } from "../../assets/context/userAuthContext";
 import { useNavigate } from "react-router-dom";
+import image from "../../assets/images/bg.png";
 
 type ISignUpProps = {
   email: string;
@@ -34,7 +35,7 @@ const LogIn: React.FunctionComponent = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(userData.email);
+    console.log("the logged in user is:", userData);
     try {
       if (userData.email && userData.password) {
         await logIn(userData.email, userData.password);
@@ -67,70 +68,75 @@ const LogIn: React.FunctionComponent = () => {
     }
   };
   return (
-    <Card className="md:w-[35%] mx-auto text-start">
-      <form onSubmit={handleSubmit}>
-        <h2 className="text-red-400 text-2xl font-bold mt-8 text-center">
-          <span className="text-green-600">Image</span>GRAM
-        </h2>
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Login</CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className="grid grid-cols-2 gap-6">
-            <Button variant="outline" onClick={handleGitHubSignIn}>
-              <Icons.gitHub className="mr-2 h-4 w-4" />
-              Github
-            </Button>
-            <Button variant="outline" onClick={handleGoogleSignIn}>
-              <Icons.google className="mr-2 h-4 w-4" />
-              Google
-            </Button>
-          </div>
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
+    <div className="flex justify-around items-center w-full h-[100vh] bg-blue-400 fixed">
+      <div className="hidden md:block w-[45%] h-[100%]">
+        <img src={image} alt="bg" className="h-[100%]" />
+      </div>
+      <Card className="md:w-[25%] p-4  text-start bg-blue-100">
+        <form onSubmit={handleSubmit}>
+          <h2 className="text-red-400 text-2xl font-bold mt-8 text-center">
+            <span className="text-green-600">Image</span>GRAM
+          </h2>
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl">Login</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-4">
+            <div className="grid grid-cols-2 gap-6">
+              <Button variant="outline" onClick={handleGitHubSignIn}>
+                <Icons.gitHub className="mr-2 h-4 w-4" />
+                Github
+              </Button>
+              <Button variant="outline" onClick={handleGoogleSignIn}>
+                <Icons.google className="mr-2 h-4 w-4" />
+                Google
+              </Button>
             </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">
-                Or continue with
-              </span>
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">
+                  Or continue with
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="m@example.com"
-              value={userData.email}
-              onChange={(e) => {
-                setUserData({ ...userData, email: e.target.value });
-              }}
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              value={userData.password}
-              onChange={(e) => {
-                setUserData({ ...userData, password: e.target.value });
-              }}
-            />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button className="w-full">login</Button>
-        </CardFooter>
-        <p className="text-center mb-4">
-          dont have an account ?{" "}
-          <Link to="/signup" className="text-blue-800 font-bold">
-            signUp here
-          </Link>{" "}
-        </p>
-      </form>
-    </Card>
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                value={userData.email}
+                onChange={(e) => {
+                  setUserData({ ...userData, email: e.target.value });
+                }}
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={userData.password}
+                onChange={(e) => {
+                  setUserData({ ...userData, password: e.target.value });
+                }}
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button className="w-full bg-white">login</Button>
+          </CardFooter>
+          <p className="text-center mb-4">
+            dont have an account ?{" "}
+            <Link to="/signup" className="text-blue-800 font-bold">
+              signUp here
+            </Link>{" "}
+          </p>
+        </form>
+      </Card>
+    </div>
   );
 };
 
