@@ -69,10 +69,7 @@ const LogIn: React.FunctionComponent = () => {
   };
   return (
     <div className="flex justify-around items-center w-full h-[100vh] bg-blue-400 fixed">
-      <div className="hidden md:block w-[45%] h-[100%]">
-        <img src={image} alt="bg" className="h-[100%]" />
-      </div>
-      <Card className="md:w-[25%] p-4  text-start bg-blue-100">
+      <Card className="w-full md:w-[35%] p-2  text-start bg-blue-100">
         <form onSubmit={handleSubmit}>
           <h2 className="text-red-400 text-2xl font-bold mt-8 text-center">
             <span className="text-green-600">Image</span>GRAM

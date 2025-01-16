@@ -8,7 +8,9 @@ const Home: React.FunctionComponent<IHomeProps> = () => {
   return (
     <div>
       <div>
-        <Layout />
+        <Layout>
+          <div>Home</div>
+        </Layout>
       </div>
     </div>
   );

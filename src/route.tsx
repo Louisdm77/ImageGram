@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Photos from "./pages/photos";
 import Error from "./pages/error";
 import Profile from "./pages/profile";
+import Chat from "./pages/chat";
 import ProtectedRoutes from "./components/protectedRoutes";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -24,6 +25,11 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/chat",
+        element: <Chat />,
         errorElement: <Error />,
       },
     ],

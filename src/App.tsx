@@ -9,7 +9,7 @@ interface IAppProps {}
 const App: React.FunctionComponent<IAppProps> = () => {
   return (
     <UserContextProvider>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </UserContextProvider>
   );
 };
